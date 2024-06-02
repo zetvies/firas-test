@@ -39,9 +39,9 @@ export default function MainContent() {
         <div class="grid grid-rows-3 grid-flow-col gap-2">
           {travelerInformationForm.map((form) => {
             return (
-              <div key={form.field} className="my-1 flex items-center">
-                <div className="  flex-1">{form.title}</div>
-                <div className=" flex-[2] ibm-plex-mono-medium">
+              <div key={form.field} className="my-1 flex items-center w-full">
+                <div className="  min-w-[230px] ">{form.title}</div>
+                <div className=" flex-1 ibm-plex-mono-medium">
                   {mainData[form.field]}
                 </div>
               </div>
@@ -50,15 +50,13 @@ export default function MainContent() {
         </div>
       </div>
       <div>
-        <div className="ibm-plex-mono-bold text-xl mb-4">
-          Work Profile
-        </div>
+        <div className="ibm-plex-mono-bold text-xl mb-4">Work Profile</div>
         <div class="grid grid-rows-3 grid-flow-col gap-2">
           {workProfileForm.map((form) => {
             return (
-              <div key={form.field} className="my-1 flex items-center">
-                <div className="  flex-1">{form.title}</div>
-                <div className=" flex-[2] ibm-plex-mono-medium">
+              <div key={form.field} className="my-1 flex items-center w-full ">
+                <div className="  min-w-[230px] ">{form.title}</div>
+                <div className=" flex-1 ibm-plex-mono-medium">
                   {mainData[form.field]}
                 </div>
               </div>
