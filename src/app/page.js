@@ -1,113 +1,132 @@
 import Image from "next/image";
+import ArabFlag from "./assets/svg/countries/ArabFlag";
+import CopyIcon from "./assets/svg/CopyIcon";
+import DownloadIcon from "./assets/svg/DownloadIcon";
+import VerifiedIcon from "./assets/svg/VerifiedIcon";
+import UnverifiedIcon from "./assets/svg/UnverifiedIcon";
+import PersonDetails from "./components/PersonDetails";
 
 export default function Home() {
+  const personData = {
+    refID: "20192398",
+    name: "Safder Jaafar",
+    countryID: "966",
+    timestamp: "05:27 PM 27/05/2024",
+    risk_score: "85%",
+    risk_label: "Low Risk",
+    risk_description:
+      "Stable job, stable employer with additional verification.",
+    income: "$500.00",
+    // Currently the values are hard coded, but during actual development it will most likely use enum.
+    financial_profile: "Very Stable",
+    assets: "No Recorded Assets",
+    employment: "Employed",
+    address_tier: "Tier 1",
+    contract_signed: "Signed",
+    travel_history: "Traveled Before",
+    behavior: "Credit Worthy",
+  };
+  const countryFlags = [
+    {
+      countryID: "966",
+      icon: <ArabFlag className={"h-8"} />,
+    },
+  ];
+  const personForm = [
+    { title: "Income", field: "income" },
+    { title: "Financial Profile", field: "financial_profile" },
+    { title: "Assets", field: "assets" },
+    { title: "Employment", field: "employment" },
+    { title: "Address", field: "address_tier" },
+    { title: "Contract_", field: "contract_signed" },
+    { title: "Travel History", field: "travel_history" },
+    { title: "Behavior", field: "behavior" },
+  ];
+
+  const personFormVerification = {
+    income: true,
+    financial_profile: true,
+    assets: false,
+    employment: true,
+    address_tier: true,
+    contract_signed: true,
+    travel_history: true,
+    behavior: true,
+  };
   return (
-    <main className="flex min-h-screen flex-col items-center justify-between p-24">
-      <div className="z-10 max-w-5xl w-full items-center justify-between font-mono text-sm lg:flex">
-        <p className="fixed left-0 top-0 flex w-full justify-center border-b border-gray-300 bg-gradient-to-b from-zinc-200 pb-6 pt-8 backdrop-blur-2xl dark:border-neutral-800 dark:bg-zinc-800/30 dark:from-inherit lg:static lg:w-auto  lg:rounded-xl lg:border lg:bg-gray-200 lg:p-4 lg:dark:bg-zinc-800/30">
-          Get started by editing&nbsp;
-          <code className="font-mono font-bold">src/app/page.js</code>
-        </p>
-        <div className="fixed bottom-0 left-0 flex h-48 w-full items-end justify-center bg-gradient-to-t from-white via-white dark:from-black dark:via-black lg:static lg:h-auto lg:w-auto lg:bg-none">
-          <a
-            className="pointer-events-none flex place-items-center gap-2 p-8 lg:pointer-events-auto lg:p-0"
-            href="https://vercel.com?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            By{" "}
-            <Image
-              src="/vercel.svg"
-              alt="Vercel Logo"
-              className="dark:invert"
-              width={100}
-              height={24}
-              priority
-            />
-          </a>
+    <main className="px-6 py-8 flex flex-col w-full h-full overflow-y-auto">
+      <div className="flex justify-between">
+        <div className="flex flex-col">
+          <div className="flex items-center bg-[rgb(0,0,0,0.1)] py-1 px-2 w-fit rounded-md text-sm">
+            <CopyIcon className={"h-4"} />
+            <div>Ref ID: {personData.refID}</div>
+          </div>
+          <div className="flex items-center font-semibold text-lg mt-2 mb-1">
+            {personData.name}
+            <div className="ml-1">
+              {
+                countryFlags.find((x) => x.countryID === personData.countryID)
+                  .icon
+              }
+            </div>
+          </div>
+          <div className="text-[#78797E] text-sm ibm-plex-mono-regular">
+            {personData.timestamp}
+          </div>
+        </div>
+        <div className="flex items-center space-x-1">
+          <button className="border-2 border-black w-12 h-10 flex justify-center items-center p-1 rounded-md">
+            <DownloadIcon className={"h-8"} />
+          </button>
+          <button className="bg-[#E3655B] rounded-md ibm-plex-mono-semibold text-sm text-white h-10 px-4">
+            Reject
+          </button>
+          <button className="bg-[#3B9B7A] rounded-md ibm-plex-mono-semibold text-sm text-white h-10 px-4">
+            Accept
+          </button>
         </div>
       </div>
-
-      <div className="relative flex place-items-center before:absolute before:h-[300px] before:w-full sm:before:w-[480px] before:-translate-x-1/2 before:rounded-full before:bg-gradient-radial before:from-white before:to-transparent before:blur-2xl before:content-[''] after:absolute after:-z-20 after:h-[180px] after:w-full sm:after:w-[240px] after:translate-x-1/3 after:bg-gradient-conic after:from-sky-200 after:via-blue-200 after:blur-2xl after:content-[''] before:dark:bg-gradient-to-br before:dark:from-transparent before:dark:to-blue-700 before:dark:opacity-10 after:dark:from-sky-900 after:dark:via-[#0141ff] after:dark:opacity-40 before:lg:h-[360px] z-[-1]">
-        <Image
-          className="relative dark:drop-shadow-[0_0_0.3rem_#ffffff70] dark:invert"
-          src="/next.svg"
-          alt="Next.js Logo"
-          width={180}
-          height={37}
-          priority
-        />
+      <div className="flex mt-6">
+        <div
+          className="rounded-lg border border-[#006C35] p-4 flex-[2] flex flex-col justify-center"
+          style={{
+            background: "linear-gradient(180deg, #D7F4EA 0.01%, #FFF 100%)",
+          }}
+        >
+          <div className="font-bold">Risk Score</div>
+          <div className="flex items-center space-x-4">
+            <div className="font-bold text-[48px]">{personData.risk_score}</div>
+            <div className="font-bold text-[18px] text-[#3B9B7A] py-1 px-3 bg-[#D3F5EA] rounded-2xl">
+              {personData.risk_label}
+            </div>
+          </div>
+          <div className="text-[rgb(0,0,0,0.6)] ibm-plex-mono-regular text-sm">
+            {personData.risk_description}
+          </div>
+        </div>
+        <div className="flex-[4] pl-10">
+          <div class="grid grid-rows-3 grid-flow-col gap-2">
+            {personForm.map((form) => {
+              return (
+                <div key={form.field} className="h-14">
+                  <div className="ibm-plex-mono-regular text-sm">
+                    {form.title}
+                  </div>
+                  <div className="font-semibold flex items-center space-x-1">
+                    <div>{personData[form.field]}</div>{" "}
+                    {personFormVerification[form.field] ? (
+                      <VerifiedIcon className={"h-5"} />
+                    ) : (
+                      <UnverifiedIcon className={"h-5"} />
+                    )}
+                  </div>
+                </div>
+              );
+            })}
+          </div>
+        </div>
       </div>
-
-      <div className="mb-32 grid text-center lg:max-w-5xl lg:w-full lg:mb-0 lg:grid-cols-4 lg:text-left">
-        <a
-          href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2 className={`mb-3 text-2xl font-semibold`}>
-            Docs{" "}
-            <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
-              -&gt;
-            </span>
-          </h2>
-          <p className={`m-0 max-w-[30ch] text-sm opacity-50`}>
-            Find in-depth information about Next.js features and API.
-          </p>
-        </a>
-
-        <a
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800 hover:dark:bg-opacity-30"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2 className={`mb-3 text-2xl font-semibold`}>
-            Learn{" "}
-            <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
-              -&gt;
-            </span>
-          </h2>
-          <p className={`m-0 max-w-[30ch] text-sm opacity-50`}>
-            Learn about Next.js in an interactive course with&nbsp;quizzes!
-          </p>
-        </a>
-
-        <a
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2 className={`mb-3 text-2xl font-semibold`}>
-            Templates{" "}
-            <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
-              -&gt;
-            </span>
-          </h2>
-          <p className={`m-0 max-w-[30ch] text-sm opacity-50`}>
-            Explore starter templates for Next.js.
-          </p>
-        </a>
-
-        <a
-          href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2 className={`mb-3 text-2xl font-semibold`}>
-            Deploy{" "}
-            <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
-              -&gt;
-            </span>
-          </h2>
-          <p className={`m-0 max-w-[30ch] text-sm opacity-50 text-balance`}>
-            Instantly deploy your Next.js site to a shareable URL with Vercel.
-          </p>
-        </a>
-      </div>
+      <PersonDetails/>
     </main>
   );
 }
