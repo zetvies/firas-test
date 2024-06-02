@@ -1,8 +1,8 @@
 "use client";
 
-import DashboardOutlinedIcon from "@/app/assets/svg/DashboardOutlinedIcon";
-import NotificationIcon from "@/app/assets/svg/NotificationIcon";
-import SearchIcon from "@/app/assets/svg/SearchIcon";
+import DashboardOutlinedIcon from "@/assets/svg/DashboardOutlinedIcon";
+import NotificationIcon from "@/assets/svg/NotificationIcon";
+import SearchIcon from "@/assets/svg/SearchIcon";
 import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";

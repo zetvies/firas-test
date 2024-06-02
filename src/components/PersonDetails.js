@@ -1,10 +1,10 @@
 "use client";
 import { useState } from "react";
-import MainIcon from "../assets/svg/MainIcon";
-import InvoiceIcon from "../assets/svg/InvoiceIcon";
-import DocumentsIcon from "../assets/svg/DocumentsIcon";
-import TravelHistoryIcon from "../assets/svg/TravelHistoryIcon";
-import AssetsIcon from "../assets/svg/AssetsIcon";
+import MainIcon from "@/assets/svg/MainIcon";
+import InvoiceIcon from "@/assets/svg/InvoiceIcon";
+import DocumentsIcon from "@/assets/svg/DocumentsIcon";
+import TravelHistoryIcon from "@/assets/svg/TravelHistoryIcon";
+import AssetsIcon from "@/assets/svg/AssetsIcon";
 import MainContent from "./MainContent";
 
 export default function PersonDetails() {

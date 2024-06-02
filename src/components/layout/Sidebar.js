@@ -1,10 +1,10 @@
 "use client";
 
-import BookmarkIcon from "@/app/assets/svg/BookmarkIcon";
-import ChartIcon from "@/app/assets/svg/ChartIcon";
-import DashboardIcon from "@/app/assets/svg/DashboardIcon";
-import NotesIcon from "@/app/assets/svg/NotesIcon";
-import StatisticIcon from "@/app/assets/svg/StatisticIcon";
+import BookmarkIcon from "@/assets/svg/BookmarkIcon";
+import ChartIcon from "@/assets/svg/ChartIcon";
+import DashboardIcon from "@/assets/svg/DashboardIcon";
+import NotesIcon from "@/assets/svg/NotesIcon";
+import StatisticIcon from "@/assets/svg/StatisticIcon";
 import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";

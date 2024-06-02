@@ -1,10 +1,10 @@
 import Image from "next/image";
-import ArabFlag from "./assets/svg/countries/ArabFlag";
-import CopyIcon from "./assets/svg/CopyIcon";
-import DownloadIcon from "./assets/svg/DownloadIcon";
-import VerifiedIcon from "./assets/svg/VerifiedIcon";
-import UnverifiedIcon from "./assets/svg/UnverifiedIcon";
-import PersonDetails from "./components/PersonDetails";
+import ArabFlag from "@/assets/svg/countries/ArabFlag";
+import CopyIcon from "@/assets/svg/CopyIcon";
+import DownloadIcon from "@/assets/svg/DownloadIcon";
+import VerifiedIcon from "@/assets/svg/VerifiedIcon";
+import UnverifiedIcon from "@/assets/svg/UnverifiedIcon";
+import PersonDetails from "@/components/PersonDetails";
 
 export default function Home() {
   const personData = {
