@@ -40,7 +40,7 @@ export default function MainContent() {
           {travelerInformationForm.map((form) => {
             return (
               <div key={form.field} className="my-1 flex items-center w-full">
-                <div className="  min-w-[230px] ">{form.title}</div>
+                <div className=" text-sm min-w-[230px] ">{form.title}</div>
                 <div className=" flex-1 ibm-plex-mono-medium">
                   {mainData[form.field]}
                 </div>
@@ -55,7 +55,7 @@ export default function MainContent() {
           {workProfileForm.map((form) => {
             return (
               <div key={form.field} className="my-1 flex items-center w-full ">
-                <div className="  min-w-[230px] ">{form.title}</div>
+                <div className=" text-sm min-w-[230px] ">{form.title}</div>
                 <div className=" flex-1 ibm-plex-mono-medium">
                   {mainData[form.field]}
                 </div>
